@@ -1,0 +1,12 @@
+Package: bsnes
+Source: higan
+Version: 094-5.1
+Architecture: all
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Installed-Size: 33
+Depends: higan
+Section: oldlibs
+Priority: optional
+Homepage: http://byuu.org/higan/
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.

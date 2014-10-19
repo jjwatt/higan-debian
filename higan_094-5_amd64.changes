@@ -1,0 +1,27 @@
+Format: 1.8
+Date: Sun, 03 Aug 2014 16:57:25 +0200
+Source: higan
+Binary: higan bsnes
+Architecture: amd64 all
+Version: 094-5
+Distribution: unstable
+Urgency: medium
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Changed-By: Tobias Hansen <thansen@debian.org>
+Description:
+ bsnes      - transitional dummy package
+ higan      - Accurate Nintendo multi-system emulator
+Closes: 751314
+Changes:
+ higan (094-5) unstable; urgency=medium
+ .
+   * Use standard gcc instead of gcc-4.8. (Closes: #751314)
+Checksums-Sha1:
+ fc42fd5b2668eda01a5a2b95f91c175b8fea6f5d 1935744 higan_094-5_amd64.deb
+ e9914d8242a7ffd486b7b6a30c31343795a10c9a 7000 bsnes_094-5_all.deb
+Checksums-Sha256:
+ 9b675006342d0a28b1699c0a849ebb3252e22914fd3d0f19d55231653f31ae82 1935744 higan_094-5_amd64.deb
+ b33db2312b3cb8708a3e517f3595e9fef1ea25962bc3e5918fff9878584bc3a8 7000 bsnes_094-5_all.deb
+Files:
+ d07b480196fc5e129904623720f61ef4 1935744 otherosfs optional higan_094-5_amd64.deb
+ 39d0f99bafbbb362b0dd854977192eae 7000 oldlibs optional bsnes_094-5_all.deb

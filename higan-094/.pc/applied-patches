@@ -1,0 +1,12 @@
+nall-makefile-fixes.patch
+makefile-fixes.patch
+load-private-libraries.patch
+desktop-file.patch
+force-button-images.patch
+check-opengl-version.patch
+sjlj-declare-xopen-source.patch
+noopt-nostrip.patch
+fc-heuristic-error.patch
+dt_lnk-dt_unknown.patch
+use-XDG_CONFIG_HOME.patch
+xshm_transparency.patch

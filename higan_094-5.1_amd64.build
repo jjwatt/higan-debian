@@ -1,0 +1,373 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: source package higan
+dpkg-buildpackage: source version 094-5.1
+dpkg-buildpackage: source distribution UNRELEASED
+dpkg-buildpackage: source changed by jwatt <jwatt@mk.nullradio.local>
+ dpkg-source --before-build higan-094
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --parallel
+   dh_testdir -O--parallel
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/home/jwatt/src/higan/higan-094'
+/usr/bin/make clean
+make[2]: Entering directory '/home/jwatt/src/higan/higan-094'
+make[2]: Leaving directory '/home/jwatt/src/higan/higan-094'
+/usr/bin/make --directory=ananke clean
+make[2]: Entering directory '/home/jwatt/src/higan/higan-094/ananke'
+make[2]: Leaving directory '/home/jwatt/src/higan/higan-094/ananke'
+rm -rf obj out ananke/obj
+make[1]: Leaving directory '/home/jwatt/src/higan/higan-094'
+   dh_clean -O--parallel
+ dpkg-source -b higan-094
+dpkg-source: info: using source format `3.0 (quilt)'
+dpkg-source: info: building higan using existing ./higan_094.orig.tar.xz
+dpkg-source: warning: ignoring deletion of directory ananke/obj
+dpkg-source: warning: ignoring deletion of directory out
+dpkg-source: warning: ignoring deletion of directory obj
+dpkg-source: info: building higan in higan_094-5.1.debian.tar.xz
+dpkg-source: info: building higan in higan_094-5.1.dsc
+ debian/rules build
+dh build --parallel
+   dh_testdir -O--parallel
+   dh_auto_configure -O--parallel
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/home/jwatt/src/higan/higan-094'
+mkdir -p obj out ananke/obj
+dh_auto_build -- profile=balanced name=higan-balanced
+make[2]: Entering directory '/home/jwatt/src/higan/higan-094'
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c target-ethos/ethos.cpp -o obj/ui-ethos.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c target-ethos/configuration/configuration.cpp -o obj/ui-configuration.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c target-ethos/interface/interface.cpp -o obj/ui-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c target-ethos/utility/utility.cpp -o obj/ui-utility.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c target-ethos/input/input.cpp -o obj/ui-input.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c target-ethos/window/window.cpp -o obj/ui-window.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c target-ethos/general/general.cpp -o obj/ui-general.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c target-ethos/settings/settings.cpp -o obj/ui-settings.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c target-ethos/tools/tools.cpp -o obj/ui-tools.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED  -DPHOENIX_GTK `pkg-config --cflags gtk+-2.0` -c phoenix/phoenix.cpp -o obj/phoenix.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED  -DVIDEO_GLX -DVIDEO_XV -DVIDEO_XSHM -DVIDEO_SDL -DAUDIO_ALSA -DAUDIO_OPENAL -DAUDIO_OSS -DAUDIO_PULSEAUDIO -DAUDIO_PULSEAUDIOSIMPLE -DAUDIO_AO -DINPUT_UDEV -DINPUT_SDL -DINPUT_X `sdl-config --cflags` -c ruby/ruby.cpp -o obj/ruby.o
+In file included from ./ruby/input/udev.cpp:13:0,
+                 from ./ruby/implementation.cpp:163,
+                 from ruby/ruby.cpp:5:
+./ruby/input/joypad/udev.cpp: In member function ‘bool ruby::InputJoypadUdev::rumble(uint64_t, bool)’:
+./ruby/input/joypad/udev.cpp:109:47: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result [-Wunused-result]
+       write(jp.fd, &play, sizeof(input_event));
+                                               ^
+g++ -x c -std=c99 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c libco/libco.c -o obj/libco.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c processor/arm/arm.cpp -o obj/processor-arm.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c processor/gsu/gsu.cpp -o obj/processor-gsu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c processor/hg51b/hg51b.cpp -o obj/processor-hg51b.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c processor/lr35902/lr35902.cpp -o obj/processor-lr35902.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c processor/r6502/r6502.cpp -o obj/processor-r6502.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c processor/r65816/r65816.cpp -o obj/processor-r65816.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c processor/spc700/spc700.cpp -o obj/processor-spc700.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c processor/upd96050/upd96050.cpp -o obj/processor-upd96050.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/interface/interface.cpp -o obj/fc-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/system/system.cpp -o obj/fc-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/scheduler/scheduler.cpp -o obj/fc-scheduler.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/input/input.cpp -o obj/fc-input.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/memory/memory.cpp -o obj/fc-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/cartridge/cartridge.cpp -o obj/fc-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/cpu/cpu.cpp -o obj/fc-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/apu/apu.cpp -o obj/fc-apu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/ppu/ppu.cpp -o obj/fc-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/cheat/cheat.cpp -o obj/fc-cheat.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c fc/video/video.cpp -o obj/fc-video.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/interface/interface.cpp -o obj/sfc-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/system/system.cpp -o obj/sfc-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/controller/controller.cpp -o obj/sfc-controller.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/cartridge/cartridge.cpp -o obj/sfc-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/cheat/cheat.cpp -o obj/sfc-cheat.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/memory/memory.cpp -o obj/sfc-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/cpu/cpu.cpp -o obj/sfc-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/smp/smp.cpp -o obj/sfc-smp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/alt/dsp/dsp.cpp -o obj/sfc-dsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/alt/ppu-balanced/ppu.cpp -o obj/sfc-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/base/satellaview/satellaview.cpp -o obj/sfc-satellaviewbase.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/icd2/icd2.cpp -o obj/sfc-icd2.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/bsx/bsx.cpp -o obj/sfc-bsx.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/nss/nss.cpp -o obj/sfc-nss.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/event/event.cpp -o obj/sfc-event.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/sa1/sa1.cpp -o obj/sfc-sa1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/superfx/superfx.cpp -o obj/sfc-superfx.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/armdsp/armdsp.cpp -o obj/sfc-armdsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/hitachidsp/hitachidsp.cpp -o obj/sfc-hitachidsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/necdsp/necdsp.cpp -o obj/sfc-necdsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/epsonrtc/epsonrtc.cpp -o obj/sfc-epsonrtc.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/sharprtc/sharprtc.cpp -o obj/sfc-sharprtc.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/spc7110/spc7110.cpp -o obj/sfc-spc7110.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/sdd1/sdd1.cpp -o obj/sfc-sdd1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/obc1/obc1.cpp -o obj/sfc-obc1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/hsu1/hsu1.cpp -o obj/sfc-hsu1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/chip/msu1/msu1.cpp -o obj/sfc-msu1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/slot/satellaview/satellaview.cpp -o obj/sfc-satellaviewcart.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c sfc/slot/sufamiturbo/sufamiturbo.cpp -o obj/sfc-sufamiturbo.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/interface/interface.cpp -o obj/gb-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/system/system.cpp -o obj/gb-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/scheduler/scheduler.cpp -o obj/gb-scheduler.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/memory/memory.cpp -o obj/gb-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/cartridge/cartridge.cpp -o obj/gb-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/cpu/cpu.cpp -o obj/gb-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/ppu/ppu.cpp -o obj/gb-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/apu/apu.cpp -o obj/gb-apu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/cheat/cheat.cpp -o obj/gb-cheat.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gb/video/video.cpp -o obj/gb-video.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/memory/memory.cpp -o obj/gba-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/interface/interface.cpp -o obj/gba-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/scheduler/scheduler.cpp -o obj/gba-scheduler.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/system/system.cpp -o obj/gba-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/video/video.cpp -o obj/gba-video.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/cartridge/cartridge.cpp -o obj/gba-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/player/player.cpp -o obj/gba-player.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/cpu/cpu.cpp -o obj/gba-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/ppu/ppu.cpp -o obj/gba-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_BALANCED -c gba/apu/apu.cpp -o obj/gba-apu.o
+g++ -o out/higan-balanced obj/ui-ethos.o obj/ui-configuration.o obj/ui-interface.o obj/ui-utility.o obj/ui-input.o obj/ui-window.o obj/ui-general.o obj/ui-settings.o obj/ui-tools.o obj/phoenix.o obj/ruby.o obj/libco.o obj/processor-arm.o obj/processor-gsu.o obj/processor-hg51b.o obj/processor-lr35902.o obj/processor-r6502.o obj/processor-r65816.o obj/processor-spc700.o obj/processor-upd96050.o obj/fc-interface.o obj/fc-system.o obj/fc-scheduler.o obj/fc-input.o obj/fc-memory.o obj/fc-cartridge.o obj/fc-cpu.o obj/fc-apu.o obj/fc-ppu.o obj/fc-cheat.o obj/fc-video.o obj/sfc-interface.o obj/sfc-system.o obj/sfc-controller.o obj/sfc-cartridge.o obj/sfc-cheat.o obj/sfc-memory.o obj/sfc-cpu.o obj/sfc-smp.o obj/sfc-dsp.o obj/sfc-ppu.o obj/sfc-satellaviewbase.o obj/sfc-icd2.o obj/sfc-bsx.o obj/sfc-nss.o obj/sfc-event.o obj/sfc-sa1.o obj/sfc-superfx.o obj/sfc-armdsp.o obj/sfc-hitachidsp.o obj/sfc-necdsp.o obj/sfc-epsonrtc.o obj/sfc-sharprtc.o obj/sfc-spc7110.o obj/sfc-sdd1.o obj/sfc-obc1.o obj/sfc-hsu1.o obj/sfc-msu1.o obj/sfc-satellaviewcart.o obj/sfc-sufamiturbo.o obj/gb-interface.o obj/gb-system.o obj/gb-scheduler.o obj/gb-memory.o obj/gb-cartridge.o obj/gb-cpu.o obj/gb-ppu.o obj/gb-apu.o obj/gb-cheat.o obj/gb-video.o obj/gba-memory.o obj/gba-interface.o obj/gba-scheduler.o obj/gba-system.o obj/gba-video.o obj/gba-cartridge.o obj/gba-player.o obj/gba-cpu.o obj/gba-ppu.o obj/gba-apu.o -Wl,-z,relro -s -Wl,-export-dynamic -lX11 -lXext -ldl `pkg-config --libs gtk+-2.0` -lGL -lXv -lasound -lao -lpulse -lpulse-simple -ludev `sdl-config --libs` -lopenal
+make[2]: Leaving directory '/home/jwatt/src/higan/higan-094'
+/usr/bin/make clean
+make[2]: Entering directory '/home/jwatt/src/higan/higan-094'
+make[2]: Leaving directory '/home/jwatt/src/higan/higan-094'
+dh_auto_build -- profile=accuracy name=higan-accuracy
+make[2]: Entering directory '/home/jwatt/src/higan/higan-094'
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c target-ethos/ethos.cpp -o obj/ui-ethos.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c target-ethos/configuration/configuration.cpp -o obj/ui-configuration.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c target-ethos/interface/interface.cpp -o obj/ui-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c target-ethos/utility/utility.cpp -o obj/ui-utility.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c target-ethos/input/input.cpp -o obj/ui-input.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c target-ethos/window/window.cpp -o obj/ui-window.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c target-ethos/general/general.cpp -o obj/ui-general.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c target-ethos/settings/settings.cpp -o obj/ui-settings.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c target-ethos/tools/tools.cpp -o obj/ui-tools.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY  -DPHOENIX_GTK `pkg-config --cflags gtk+-2.0` -c phoenix/phoenix.cpp -o obj/phoenix.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY  -DVIDEO_GLX -DVIDEO_XV -DVIDEO_XSHM -DVIDEO_SDL -DAUDIO_ALSA -DAUDIO_OPENAL -DAUDIO_OSS -DAUDIO_PULSEAUDIO -DAUDIO_PULSEAUDIOSIMPLE -DAUDIO_AO -DINPUT_UDEV -DINPUT_SDL -DINPUT_X `sdl-config --cflags` -c ruby/ruby.cpp -o obj/ruby.o
+In file included from ./ruby/input/udev.cpp:13:0,
+                 from ./ruby/implementation.cpp:163,
+                 from ruby/ruby.cpp:5:
+./ruby/input/joypad/udev.cpp: In member function ‘bool ruby::InputJoypadUdev::rumble(uint64_t, bool)’:
+./ruby/input/joypad/udev.cpp:109:47: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result [-Wunused-result]
+       write(jp.fd, &play, sizeof(input_event));
+                                               ^
+g++ -x c -std=c99 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c libco/libco.c -o obj/libco.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c processor/arm/arm.cpp -o obj/processor-arm.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c processor/gsu/gsu.cpp -o obj/processor-gsu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c processor/hg51b/hg51b.cpp -o obj/processor-hg51b.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c processor/lr35902/lr35902.cpp -o obj/processor-lr35902.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c processor/r6502/r6502.cpp -o obj/processor-r6502.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c processor/r65816/r65816.cpp -o obj/processor-r65816.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c processor/spc700/spc700.cpp -o obj/processor-spc700.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c processor/upd96050/upd96050.cpp -o obj/processor-upd96050.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/interface/interface.cpp -o obj/fc-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/system/system.cpp -o obj/fc-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/scheduler/scheduler.cpp -o obj/fc-scheduler.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/input/input.cpp -o obj/fc-input.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/memory/memory.cpp -o obj/fc-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/cartridge/cartridge.cpp -o obj/fc-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/cpu/cpu.cpp -o obj/fc-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/apu/apu.cpp -o obj/fc-apu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/ppu/ppu.cpp -o obj/fc-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/cheat/cheat.cpp -o obj/fc-cheat.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c fc/video/video.cpp -o obj/fc-video.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/interface/interface.cpp -o obj/sfc-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/system/system.cpp -o obj/sfc-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/controller/controller.cpp -o obj/sfc-controller.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/cartridge/cartridge.cpp -o obj/sfc-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/cheat/cheat.cpp -o obj/sfc-cheat.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/memory/memory.cpp -o obj/sfc-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/cpu/cpu.cpp -o obj/sfc-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/smp/smp.cpp -o obj/sfc-smp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/dsp/dsp.cpp -o obj/sfc-dsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/ppu/ppu.cpp -o obj/sfc-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/base/satellaview/satellaview.cpp -o obj/sfc-satellaviewbase.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/icd2/icd2.cpp -o obj/sfc-icd2.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/bsx/bsx.cpp -o obj/sfc-bsx.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/nss/nss.cpp -o obj/sfc-nss.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/event/event.cpp -o obj/sfc-event.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/sa1/sa1.cpp -o obj/sfc-sa1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/superfx/superfx.cpp -o obj/sfc-superfx.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/armdsp/armdsp.cpp -o obj/sfc-armdsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/hitachidsp/hitachidsp.cpp -o obj/sfc-hitachidsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/necdsp/necdsp.cpp -o obj/sfc-necdsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/epsonrtc/epsonrtc.cpp -o obj/sfc-epsonrtc.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/sharprtc/sharprtc.cpp -o obj/sfc-sharprtc.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/spc7110/spc7110.cpp -o obj/sfc-spc7110.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/sdd1/sdd1.cpp -o obj/sfc-sdd1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/obc1/obc1.cpp -o obj/sfc-obc1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/hsu1/hsu1.cpp -o obj/sfc-hsu1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/chip/msu1/msu1.cpp -o obj/sfc-msu1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/slot/satellaview/satellaview.cpp -o obj/sfc-satellaviewcart.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c sfc/slot/sufamiturbo/sufamiturbo.cpp -o obj/sfc-sufamiturbo.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/interface/interface.cpp -o obj/gb-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/system/system.cpp -o obj/gb-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/scheduler/scheduler.cpp -o obj/gb-scheduler.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/memory/memory.cpp -o obj/gb-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/cartridge/cartridge.cpp -o obj/gb-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/cpu/cpu.cpp -o obj/gb-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/ppu/ppu.cpp -o obj/gb-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/apu/apu.cpp -o obj/gb-apu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/cheat/cheat.cpp -o obj/gb-cheat.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gb/video/video.cpp -o obj/gb-video.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/memory/memory.cpp -o obj/gba-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/interface/interface.cpp -o obj/gba-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/scheduler/scheduler.cpp -o obj/gba-scheduler.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/system/system.cpp -o obj/gba-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/video/video.cpp -o obj/gba-video.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/cartridge/cartridge.cpp -o obj/gba-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/player/player.cpp -o obj/gba-player.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/cpu/cpu.cpp -o obj/gba-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/ppu/ppu.cpp -o obj/gba-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_ACCURACY -c gba/apu/apu.cpp -o obj/gba-apu.o
+g++ -o out/higan-accuracy obj/ui-ethos.o obj/ui-configuration.o obj/ui-interface.o obj/ui-utility.o obj/ui-input.o obj/ui-window.o obj/ui-general.o obj/ui-settings.o obj/ui-tools.o obj/phoenix.o obj/ruby.o obj/libco.o obj/processor-arm.o obj/processor-gsu.o obj/processor-hg51b.o obj/processor-lr35902.o obj/processor-r6502.o obj/processor-r65816.o obj/processor-spc700.o obj/processor-upd96050.o obj/fc-interface.o obj/fc-system.o obj/fc-scheduler.o obj/fc-input.o obj/fc-memory.o obj/fc-cartridge.o obj/fc-cpu.o obj/fc-apu.o obj/fc-ppu.o obj/fc-cheat.o obj/fc-video.o obj/sfc-interface.o obj/sfc-system.o obj/sfc-controller.o obj/sfc-cartridge.o obj/sfc-cheat.o obj/sfc-memory.o obj/sfc-cpu.o obj/sfc-smp.o obj/sfc-dsp.o obj/sfc-ppu.o obj/sfc-satellaviewbase.o obj/sfc-icd2.o obj/sfc-bsx.o obj/sfc-nss.o obj/sfc-event.o obj/sfc-sa1.o obj/sfc-superfx.o obj/sfc-armdsp.o obj/sfc-hitachidsp.o obj/sfc-necdsp.o obj/sfc-epsonrtc.o obj/sfc-sharprtc.o obj/sfc-spc7110.o obj/sfc-sdd1.o obj/sfc-obc1.o obj/sfc-hsu1.o obj/sfc-msu1.o obj/sfc-satellaviewcart.o obj/sfc-sufamiturbo.o obj/gb-interface.o obj/gb-system.o obj/gb-scheduler.o obj/gb-memory.o obj/gb-cartridge.o obj/gb-cpu.o obj/gb-ppu.o obj/gb-apu.o obj/gb-cheat.o obj/gb-video.o obj/gba-memory.o obj/gba-interface.o obj/gba-scheduler.o obj/gba-system.o obj/gba-video.o obj/gba-cartridge.o obj/gba-player.o obj/gba-cpu.o obj/gba-ppu.o obj/gba-apu.o -Wl,-z,relro -s -Wl,-export-dynamic -lX11 -lXext -ldl `pkg-config --libs gtk+-2.0` -lGL -lXv -lasound -lao -lpulse -lpulse-simple -ludev `sdl-config --libs` -lopenal
+make[2]: Leaving directory '/home/jwatt/src/higan/higan-094'
+/usr/bin/make clean
+make[2]: Entering directory '/home/jwatt/src/higan/higan-094'
+make[2]: Leaving directory '/home/jwatt/src/higan/higan-094'
+dh_auto_build -- profile=performance name=higan-performance
+make[2]: Entering directory '/home/jwatt/src/higan/higan-094'
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c target-ethos/ethos.cpp -o obj/ui-ethos.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c target-ethos/configuration/configuration.cpp -o obj/ui-configuration.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c target-ethos/interface/interface.cpp -o obj/ui-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c target-ethos/utility/utility.cpp -o obj/ui-utility.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c target-ethos/input/input.cpp -o obj/ui-input.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c target-ethos/window/window.cpp -o obj/ui-window.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c target-ethos/general/general.cpp -o obj/ui-general.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c target-ethos/settings/settings.cpp -o obj/ui-settings.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c target-ethos/tools/tools.cpp -o obj/ui-tools.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE  -DPHOENIX_GTK `pkg-config --cflags gtk+-2.0` -c phoenix/phoenix.cpp -o obj/phoenix.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE  -DVIDEO_GLX -DVIDEO_XV -DVIDEO_XSHM -DVIDEO_SDL -DAUDIO_ALSA -DAUDIO_OPENAL -DAUDIO_OSS -DAUDIO_PULSEAUDIO -DAUDIO_PULSEAUDIOSIMPLE -DAUDIO_AO -DINPUT_UDEV -DINPUT_SDL -DINPUT_X `sdl-config --cflags` -c ruby/ruby.cpp -o obj/ruby.o
+In file included from ./ruby/input/udev.cpp:13:0,
+                 from ./ruby/implementation.cpp:163,
+                 from ruby/ruby.cpp:5:
+./ruby/input/joypad/udev.cpp: In member function ‘bool ruby::InputJoypadUdev::rumble(uint64_t, bool)’:
+./ruby/input/joypad/udev.cpp:109:47: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result [-Wunused-result]
+       write(jp.fd, &play, sizeof(input_event));
+                                               ^
+g++ -x c -std=c99 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c libco/libco.c -o obj/libco.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c processor/arm/arm.cpp -o obj/processor-arm.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c processor/gsu/gsu.cpp -o obj/processor-gsu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c processor/hg51b/hg51b.cpp -o obj/processor-hg51b.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c processor/lr35902/lr35902.cpp -o obj/processor-lr35902.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c processor/r6502/r6502.cpp -o obj/processor-r6502.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c processor/r65816/r65816.cpp -o obj/processor-r65816.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c processor/spc700/spc700.cpp -o obj/processor-spc700.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c processor/upd96050/upd96050.cpp -o obj/processor-upd96050.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/interface/interface.cpp -o obj/fc-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/system/system.cpp -o obj/fc-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/scheduler/scheduler.cpp -o obj/fc-scheduler.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/input/input.cpp -o obj/fc-input.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/memory/memory.cpp -o obj/fc-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/cartridge/cartridge.cpp -o obj/fc-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/cpu/cpu.cpp -o obj/fc-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/apu/apu.cpp -o obj/fc-apu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/ppu/ppu.cpp -o obj/fc-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/cheat/cheat.cpp -o obj/fc-cheat.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c fc/video/video.cpp -o obj/fc-video.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/interface/interface.cpp -o obj/sfc-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/system/system.cpp -o obj/sfc-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/controller/controller.cpp -o obj/sfc-controller.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/cartridge/cartridge.cpp -o obj/sfc-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/cheat/cheat.cpp -o obj/sfc-cheat.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/memory/memory.cpp -o obj/sfc-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/alt/cpu/cpu.cpp -o obj/sfc-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/alt/smp/smp.cpp -o obj/sfc-smp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/alt/dsp/dsp.cpp -o obj/sfc-dsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/alt/ppu-performance/ppu.cpp -o obj/sfc-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/base/satellaview/satellaview.cpp -o obj/sfc-satellaviewbase.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/icd2/icd2.cpp -o obj/sfc-icd2.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/bsx/bsx.cpp -o obj/sfc-bsx.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/nss/nss.cpp -o obj/sfc-nss.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/event/event.cpp -o obj/sfc-event.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/sa1/sa1.cpp -o obj/sfc-sa1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/superfx/superfx.cpp -o obj/sfc-superfx.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/armdsp/armdsp.cpp -o obj/sfc-armdsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/hitachidsp/hitachidsp.cpp -o obj/sfc-hitachidsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/necdsp/necdsp.cpp -o obj/sfc-necdsp.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/epsonrtc/epsonrtc.cpp -o obj/sfc-epsonrtc.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/sharprtc/sharprtc.cpp -o obj/sfc-sharprtc.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/spc7110/spc7110.cpp -o obj/sfc-spc7110.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/sdd1/sdd1.cpp -o obj/sfc-sdd1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/obc1/obc1.cpp -o obj/sfc-obc1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/hsu1/hsu1.cpp -o obj/sfc-hsu1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/chip/msu1/msu1.cpp -o obj/sfc-msu1.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/slot/satellaview/satellaview.cpp -o obj/sfc-satellaviewcart.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c sfc/slot/sufamiturbo/sufamiturbo.cpp -o obj/sfc-sufamiturbo.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/interface/interface.cpp -o obj/gb-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/system/system.cpp -o obj/gb-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/scheduler/scheduler.cpp -o obj/gb-scheduler.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/memory/memory.cpp -o obj/gb-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/cartridge/cartridge.cpp -o obj/gb-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/cpu/cpu.cpp -o obj/gb-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/ppu/ppu.cpp -o obj/gb-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/apu/apu.cpp -o obj/gb-apu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/cheat/cheat.cpp -o obj/gb-cheat.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gb/video/video.cpp -o obj/gb-video.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/memory/memory.cpp -o obj/gba-memory.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/interface/interface.cpp -o obj/gba-interface.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/scheduler/scheduler.cpp -o obj/gba-scheduler.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/system/system.cpp -o obj/gba-system.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/video/video.cpp -o obj/gba-video.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/cartridge/cartridge.cpp -o obj/gba-cartridge.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/player/player.cpp -o obj/gba-player.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/cpu/cpu.cpp -o obj/gba-cpu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/ppu/ppu.cpp -o obj/gba-ppu.o
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -I. -O3 -fomit-frame-pointer -DPROFILE_PERFORMANCE -c gba/apu/apu.cpp -o obj/gba-apu.o
+g++ -o out/higan-performance obj/ui-ethos.o obj/ui-configuration.o obj/ui-interface.o obj/ui-utility.o obj/ui-input.o obj/ui-window.o obj/ui-general.o obj/ui-settings.o obj/ui-tools.o obj/phoenix.o obj/ruby.o obj/libco.o obj/processor-arm.o obj/processor-gsu.o obj/processor-hg51b.o obj/processor-lr35902.o obj/processor-r6502.o obj/processor-r65816.o obj/processor-spc700.o obj/processor-upd96050.o obj/fc-interface.o obj/fc-system.o obj/fc-scheduler.o obj/fc-input.o obj/fc-memory.o obj/fc-cartridge.o obj/fc-cpu.o obj/fc-apu.o obj/fc-ppu.o obj/fc-cheat.o obj/fc-video.o obj/sfc-interface.o obj/sfc-system.o obj/sfc-controller.o obj/sfc-cartridge.o obj/sfc-cheat.o obj/sfc-memory.o obj/sfc-cpu.o obj/sfc-smp.o obj/sfc-dsp.o obj/sfc-ppu.o obj/sfc-satellaviewbase.o obj/sfc-icd2.o obj/sfc-bsx.o obj/sfc-nss.o obj/sfc-event.o obj/sfc-sa1.o obj/sfc-superfx.o obj/sfc-armdsp.o obj/sfc-hitachidsp.o obj/sfc-necdsp.o obj/sfc-epsonrtc.o obj/sfc-sharprtc.o obj/sfc-spc7110.o obj/sfc-sdd1.o obj/sfc-obc1.o obj/sfc-hsu1.o obj/sfc-msu1.o obj/sfc-satellaviewcart.o obj/sfc-sufamiturbo.o obj/gb-interface.o obj/gb-system.o obj/gb-scheduler.o obj/gb-memory.o obj/gb-cartridge.o obj/gb-cpu.o obj/gb-ppu.o obj/gb-apu.o obj/gb-cheat.o obj/gb-video.o obj/gba-memory.o obj/gba-interface.o obj/gba-scheduler.o obj/gba-system.o obj/gba-video.o obj/gba-cartridge.o obj/gba-player.o obj/gba-cpu.o obj/gba-ppu.o obj/gba-apu.o -Wl,-z,relro -s -Wl,-export-dynamic -lX11 -lXext -ldl `pkg-config --libs gtk+-2.0` -lGL -lXv -lasound -lao -lpulse -lpulse-simple -ludev `sdl-config --libs` -lopenal
+make[2]: Leaving directory '/home/jwatt/src/higan/higan-094'
+/usr/bin/make --directory=ananke
+make[2]: Entering directory '/home/jwatt/src/higan/higan-094/ananke'
+g++ -x c++ -std=c++11 -g -O2 -fstack-protector-strong -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2  -O3 -fomit-frame-pointer -I.. -fPIC -o obj/ananke.o -c ananke.cpp
+g++ -Wl,-z,relro -shared -Wl,-soname,libananke.so.1 -o libananke.so obj/ananke.o
+make[2]: Leaving directory '/home/jwatt/src/higan/higan-094/ananke'
+make[1]: Leaving directory '/home/jwatt/src/higan/higan-094'
+ fakeroot debian/rules binary
+dh binary --parallel
+   dh_testroot -O--parallel
+   dh_prep -O--parallel
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/home/jwatt/src/higan/higan-094'
+install -D -m 644 data/higan.png debian/higan/usr/share/pixmaps/higan.png
+install -D -m 644 data/higan.desktop debian/higan/usr/share/applications/higan.desktop
+install -D -m 644 data/cheats.bml debian/higan/usr/share/higan/cheats.bml
+cp -R profile/* debian/higan/usr/share/higan
+chmod 644 debian/higan/usr/share/higan/*/*
+mkdir -p debian/higan/usr/share/higan/Video\ Shaders
+cp -R shaders/*.shader debian/higan/usr/share/higan/Video\ Shaders
+chmod 644 debian/higan/usr/share/higan/Video\ Shaders/*/*
+install -D -m 644 ananke/libananke.so debian/higan/usr/lib/higan/libananke.so.1
+make[1]: Leaving directory '/home/jwatt/src/higan/higan-094'
+   dh_install -O--parallel
+   dh_installdocs -O--parallel
+   dh_installchangelogs -O--parallel
+   dh_installman -O--parallel
+   dh_installmenu -O--parallel
+   dh_lintian -O--parallel
+   dh_perl -O--parallel
+   debian/rules override_dh_link
+make[1]: Entering directory '/home/jwatt/src/higan/higan-094'
+dh_link usr/lib/higan/libananke.so.1 usr/lib/higan/libananke.so
+make[1]: Leaving directory '/home/jwatt/src/higan/higan-094'
+   dh_compress -O--parallel
+   dh_fixperms -O--parallel
+   dh_strip -O--parallel
+   dh_shlibdeps -O--parallel
+dpkg-shlibdeps: warning: debian/higan/usr/lib/higan/libananke.so.1 contains an unresolvable reference to symbol _ZN7phoenix13MessageWindowC1ERKN4nall6stringE: it's probably a plugin
+dpkg-shlibdeps: warning: 43 other similar warnings have been skipped (use -v to see them all)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/higan/usr/bin/higan-performance debian/higan/usr/bin/higan-accuracy debian/higan/usr/bin/higan-balanced were not linked against libpangoft2-1.0.so.0 (they use none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/higan/usr/bin/higan-performance debian/higan/usr/bin/higan-accuracy debian/higan/usr/bin/higan-balanced were not linked against libatk-1.0.so.0 (they use none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/higan/usr/bin/higan-performance debian/higan/usr/bin/higan-accuracy debian/higan/usr/bin/higan-balanced were not linked against libpangocairo-1.0.so.0 (they use none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/higan/usr/bin/higan-performance debian/higan/usr/bin/higan-accuracy debian/higan/usr/bin/higan-balanced were not linked against libfreetype.so.6 (they use none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/higan/usr/bin/higan-performance debian/higan/usr/bin/higan-accuracy debian/higan/usr/bin/higan-balanced were not linked against libgio-2.0.so.0 (they use none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/higan/usr/bin/higan-performance debian/higan/usr/bin/higan-accuracy debian/higan/usr/bin/higan-balanced were not linked against libfontconfig.so.1 (they use none of the library's symbols)
+   dh_installdeb -O--parallel
+   dh_gencontrol -O--parallel
+   dh_md5sums -O--parallel
+   dh_builddeb -O--parallel
+dpkg-deb: building package `higan' in `../higan_094-5.1_amd64.deb'.
+dpkg-deb: building package `bsnes' in `../bsnes_094-5.1_all.deb'.
+ dpkg-genchanges  >../higan_094-5.1_amd64.changes
+dpkg-genchanges: not including original source code in upload
+ dpkg-source --after-build higan-094
+dpkg-buildpackage: binary and diff upload (original source NOT included)
+Now running lintian...
+N: 3 tags overridden (2 warnings, 1 info)
+Finished running lintian.

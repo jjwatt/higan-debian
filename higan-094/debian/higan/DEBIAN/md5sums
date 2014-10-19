@@ -1,0 +1,44 @@
+3bd5ce501f6bdb320eecabfdccf6500f  usr/bin/higan-accuracy
+c7de0275acedfbcc36158307869b70f0  usr/bin/higan-balanced
+ae76f90119ea4265c79554c2575e6b0a  usr/bin/higan-performance
+9d775d64c58367808d590dc10cd69912  usr/lib/higan/libananke.so.1
+f39e81fb73c9e77be2739d4c01c64aba  usr/share/applications/higan.desktop
+e6407f12c04a4228629579af938e29a9  usr/share/doc-base/higan
+8cd0fce58125d9a7644656cdf1b15a72  usr/share/doc/higan/changelog.Debian.gz
+1374cc4181f5d39378e2ad3e15c79a6d  usr/share/doc/higan/copyright
+d7bc015d27331fded5400e1dd3eba0f8  usr/share/doc/higan/higan_user_guide.html
+15d344dcc92a71a2d79eb38ca103156e  usr/share/doc/higan/higan_user_guide_files/cheat-database.png
+0861674f1899b527b31dd3e7b3455a71  usr/share/doc/higan/higan_user_guide_files/cheat-editor.png
+fc7cad4482aa8709e33d3c401406a73e  usr/share/doc/higan/higan_user_guide_files/favicon.png
+a972633304cdfb588b6aef6358fd1bb3  usr/share/doc/higan/higan_user_guide_files/load-library.png
+224078bec7122020deadca5c6d9ec832  usr/share/doc/higan/higan_user_guide_files/main-window-gaming.png
+1e3c99a208f4c57c0aae22917a9b7960  usr/share/doc/higan/higan_user_guide_files/main-window.png
+94585ce46d8aaa4e05cb609e010f2b60  usr/share/doc/higan/higan_user_guide_files/settings-drivers.png
+b84bcc8b787e7ae52004834d1f427003  usr/share/doc/higan/higan_user_guide_files/settings-hotkeys.png
+0ef217f82d65e8a5a11b2f1f405ca80c  usr/share/doc/higan/higan_user_guide_files/settings-input.png
+57dd0fcd5f661301e6a5200a2ba35070  usr/share/doc/higan/higan_user_guide_files/settings-timing.png
+9ed27c0aecb2f24bfb4d6c6cf9402935  usr/share/doc/higan/higan_user_guide_files/state-manager.png
+2d3ce42aa16e445358a243acfdba42a9  usr/share/doc/higan/higan_user_guide_files/style-default.css
+0e3ad37654ab70c1de8e1785e3008ba8  usr/share/higan/Famicom.sys/manifest.bml
+187cc71de2adef9b715739a6903ea3b4  usr/share/higan/Game Boy Advance.sys/manifest.bml
+34a8d99495889774238e506cc42dcaea  usr/share/higan/Game Boy Color.sys/boot.rom
+f18370f10d87a7ae3958f534f352fbfc  usr/share/higan/Game Boy Color.sys/manifest.bml
+32fbbd84168d3482956eb3c5051637f5  usr/share/higan/Game Boy.sys/boot.rom
+bd14db9e3fa4feb22abfa5472d34a5ec  usr/share/higan/Game Boy.sys/manifest.bml
+ac35bfc854818e2f55c2a05917493db3  usr/share/higan/Super Famicom.sys/ipl.rom
+be66718d4184260c880b58c75fbd5855  usr/share/higan/Super Famicom.sys/manifest.bml
+f005bb6bd938e175dcfeb140f41d4a9c  usr/share/higan/Video Shaders/Curvature.shader/curvature.fs
+7523256d64ca6443e4a3d00d59c538f1  usr/share/higan/Video Shaders/Curvature.shader/manifest.bml
+b5f2df148c6b54ee0ea621972cf7012b  usr/share/higan/Video Shaders/Edge Detection.shader/edge-detection.fs
+1394afeeeabefa3d9243a886b0cffe8c  usr/share/higan/Video Shaders/Edge Detection.shader/manifest.bml
+72394111a0677b927b9b710ecf266e27  usr/share/higan/Video Shaders/Scanline.shader/manifest.bml
+9cdd7f6858f90a38ef380d46653c91ed  usr/share/higan/Video Shaders/Scanline.shader/scanline.fs
+982aba9e83bcb7e83bb50fc52763e220  usr/share/higan/cheats.bml
+3fbdc227b4edc86e8feef0ca89698ab5  usr/share/lintian/overrides/higan
+f343c6b0838e8ea5bf42ba47d0645421  usr/share/man/man6/higan-accuracy.6.gz
+87e96016e9d39a593570211cf8c4d614  usr/share/man/man6/higan-balanced.6.gz
+6a410e5ab2917ac228e95c04ae5c7028  usr/share/man/man6/higan-performance.6.gz
+cb69108269b89ad00be78e528762961d  usr/share/man/man6/higan.6.gz
+49e2b2ec03608ea0ad8d31ccd0062904  usr/share/menu/higan
+bbfff8147fbba3a1a9f7bb6b47be474b  usr/share/pixmaps/higan.png
+cb0b167c5859c4a57a714c5493e658a3  usr/share/pixmaps/higan.xpm

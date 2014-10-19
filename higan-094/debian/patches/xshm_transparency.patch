@@ -1,0 +1,14 @@
+Index: higan-094/ruby/video/xshm.cpp
+===================================================================
+--- higan-094.orig/ruby/video/xshm.cpp
++++ higan-094/ruby/video/xshm.cpp
+@@ -97,7 +97,8 @@ struct pVideoXShm {
+         unsigned b = (color >> blue.ishift ) & ((1 << blue.idepth ) - 1);
+         *dp++ = image::normalize(r, red.idepth,   red.depth  ) << red.shift
+               | image::normalize(g, green.idepth, green.depth) << green.shift
+-              | image::normalize(b, blue.idepth,  blue.depth ) << blue.shift;
++              | image::normalize(b, blue.idepth,  blue.depth ) << blue.shift
++              | 0xFF000000;
+       }
+     }
+ 

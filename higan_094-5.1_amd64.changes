@@ -1,0 +1,33 @@
+Format: 1.8
+Date: Sun, 19 Oct 2014 13:21:02 -0400
+Source: higan
+Binary: higan bsnes
+Architecture: source amd64 all
+Version: 094-5.1
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Changed-By: jwatt <jesse.j.wattenbarger@gmail.com>
+Description:
+ bsnes      - transitional dummy package
+ higan      - Accurate Nintendo multi-system emulator
+Changes:
+ higan (094-5.1) UNRELEASED; urgency=medium
+ .
+   * Non-maintainer upload.
+   * Modify xshm.cpp to get rid of transparency.
+Checksums-Sha1:
+ dfff4884e7726b1414d88723aab9aa8b6c3f4ed8 1166 higan_094-5.1.dsc
+ 20ff86b0f3fdd7f3e07d5e8525adc965b9962196 529344 higan_094-5.1.debian.tar.xz
+ cdbc2b90c4f003e046e9cbc024d8392f2b34bad6 1934092 higan_094-5.1_amd64.deb
+ 079c4bb487a33ef00f86f1420bca9e6d80d744a6 7086 bsnes_094-5.1_all.deb
+Checksums-Sha256:
+ 9cdcd2fd481c3d9cfdd35974d16d5b15ab88b32e8f29f7c1618793dc1b1470e0 1166 higan_094-5.1.dsc
+ 095a1e8e0e2bab2d2448a9cf3bfda45b6a56c27a7f6b713c4c4d9dc3885c240d 529344 higan_094-5.1.debian.tar.xz
+ b394c08f7006c5d1d2a6ad1c2c83c15b1196ff195852e41988ddb06aca800698 1934092 higan_094-5.1_amd64.deb
+ 069d37b72ba3c0396a4dafde4afdec7e45a886da3c95f98d6a0208b95bf01d93 7086 bsnes_094-5.1_all.deb
+Files:
+ 4338a15204fb523b08ba3522e2367466 1934092 otherosfs optional higan_094-5.1_amd64.deb
+ 319a74cdad4f94e4f125675550ff4b80 7086 oldlibs optional bsnes_094-5.1_all.deb
+ 96435f3089591728db6fd5184770f8de 1166 otherosfs optional higan_094-5.1.dsc
+ b68a736cac97231a2d74336a98f9acdb 529344 otherosfs optional higan_094-5.1.debian.tar.xz
